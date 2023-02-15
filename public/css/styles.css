@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#title h1 {
+    color: yellow;
+    line-height: 1.5;
+}
+
+#title .msg {
+    width: 200px;
+}
+
+
+/* navbar */
+.navbar {
+    margin-bottom: 1rem;
+}
+
+.navbar-brand {
+    font-family: 'Ubuntu';
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.nav-link {
+    font-size: 1.2rem;
+}
+
+
+/* title */
+.cont {
+    position: relative;
+}
+
+.cont img {
+    width: 100%;
+    height: 600px;
+}
+
+.top-left {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 28px;
+    left: 16px;
+    background-color: #ffc708;
+    width: 25%;
+    border-radius: 40%;
+    font-size: 2rem;
+    font-family: serif;
+    font-weight: bold;
+    color: white;
+    padding: 20px 30px 30px 20px;
+    text-align: center;
+}
+
+/* section */
+
+
+/* section 2 */
+#section2 {
+    margin: 30px;
+}
+
+#section2 h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#section2 div {
+    margin-left: 7%;
+}
+
+#section2 div div {
+    padding: 10px;
+    margin: 30px;
+    border-radius: 20px;
+    background-color: rgb(206, 206, 21);
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    #section2 div {
+        margin-left: 0;
+    }
+
+    #section2 div div {
+        padding: 20px;
+        margin: 30px 0;
+    }
+}
+
+
+/* section 3 */
+#section3 {
+    margin: 40px 30px;
+}
+
+#section3 h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#section3 div {
+    margin-left: 7%;
+}
+
+#section3 div div {
+    padding: 10px;
+    margin: 20px 40px;
+}
+
+
+/* footer */
+#footer {
+    background-color: #ffd200;
+    padding: 30px 0 20px;
+    align-items: center;
+}
+
+.footer-container {
+    margin-left: 40%;
+}
+
+.footer-container i {
+    margin: 20px;
+}
+
+
+/* login page */
+
+.formContainer {
+    background-color: #fff;
+    /* height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formContainer .formWrapper {
+    background-color: #ffd200;
+    padding: 20px 60px;
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.formWrapper .title {
+    color: #5d5b8d;
+    font-size: 24px;
+}
+
+.formWrapper .loginRegisterForm {
+    display: flex;
+    flex-direction: column;
+    /* gap: 35px; */
+}
+
+.loginRegisterForm input {
+    padding: 15px;
+    border: none;
+    width: 300px;
+    border-bottom: 1px solid #a7bcff;
+}
+
+.loginRegisterForm ::placeholder {
+    color: rgb(175, 175, 175);
+    font-size: 15px;
+}
+
+.loginRegisterForm label {
+    display: flex;
+    align-items: center;
+    /* gap: 10px; */
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.loginRegisterForm button {
+    background-color: #ff4d00;
+    color: white;
+    padding: 10px;
+    margin-top: 30px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 10px;
+}

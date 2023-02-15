@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="css/styles.css">
+
+        <style>
+            .navbar {
+                background-color: #ff4d00;
+                color: #fff;
+                height: 50px;
+                font-size: 36px;
+                font-weight: 400;
+                padding: 10px;
+            }
+
+            .navbar a {
+                text-decoration: none;
+                color: #fff;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="navbar"><a href="/">TalkSpace</a></div>
+        <div class='formContainer'>
+            <div class='formWrapper'>
+
+                <span class='title'>Login</span>
+                <form class="loginRegisterForm" action="/login" method="post">
+                    <label>Email</label>
+                    <input type='email' name="email" placeholder='Enter Your Email' />
+                    <label>Password</label>
+                    <input type='password' name="password" placeholder='Enter Password' />
+                    <button>Login</button>
+                    <!-- {err && <span>Something went wrong!</span>} -->
+                </form>
+                <p>You do not have a account?
+                    <a href='/register'>Register</a>
+                </p>
+            </div>
+        </div>
+
+    </body>
+
+</html>
