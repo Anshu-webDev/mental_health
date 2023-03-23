@@ -152,12 +152,12 @@ body {
 /* footer */
 .footer {
   width: 100%;
-  position: fixed;
+  position: absolute;
   background-color: #ffd200;
   /* padding: 30px 0 20px; */
   text-align: center;
   left: 0;
-  bottom: 0;
+  /* bottom: 0; */
 
 }
 

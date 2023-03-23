@@ -63,6 +63,23 @@ const dashboard = (req, res) => {
     }
 }
 
+
+const health_tracker = (req, res) => {
+    if (req.session.user) {
+        res.render("health_tracker", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
+const ai_voice = (req, res) => {
+    if (req.session.user) {
+        res.render("chat", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
 const logout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -72,4 +89,4 @@ const logout = (req, res) => {
     })
 }
 
-module.exports = { home, register, login, handleRegister, handleLogin, dashboard, logout }
+module.exports = { home, register, login, handleRegister, handleLogin, dashboard, health_tracker, ai_voice, logout }

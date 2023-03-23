@@ -12,6 +12,8 @@ router.get('/login', Controller.login);
 router.post('/login', Controller.handleLogin);
 
 router.get("/dashboard", Controller.dashboard);
+router.get("/health_tracker", Controller.health_tracker);
+router.get("/ai_voice", Controller.ai_voice);
 
 router.get('/logout', Controller.logout)
 
