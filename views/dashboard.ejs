@@ -29,6 +29,7 @@
     </head>
 
     <body>
+
         <section id="title">
             <nav class="navbar navbar-expand-md navbar-light bg-warning">
                 <span style="font-size: 30px; cursor: pointer; padding-left: 10px" onclick="openNav()">&#9776;
@@ -47,12 +48,12 @@
                         <button class="tablinks" onclick="openPage(event, 'AI Voice Assistant')">
                             AI Voice Assistant
                         </button>
-                        <button class="tablinks" onclick="openPage(event, 'Exercise')">
+                        <!-- <button class="tablinks" onclick="openPage(event, 'Exercise')">
                             Exercise
                         </button>
                         <button class="tablinks" onclick="openPage(event, 'Meditation')">
                             Meditation
-                        </button>
+                        </button> -->
                         <button class="tablinks" onclick="openPage(event, 'Nutritional Guide')">
                             Nutritional Guide
                         </button>
@@ -72,101 +73,103 @@
         </section>
         <!-- end section title -->
 
-        <div id="Profile" class="tabcontent">
-            <h3>Users details</h3>
-            <h1>
-                Welcome to dashboard, <%= user.username %>
-            </h1>
-            <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore,
-                quaerat quisquam accusamus repellendus tenetur earum temporibus.
-                Mollitia aut reiciendis quibusdam iste laudantium quis enim sint cum,
-                dignissimos, quidem provident et!.
-            </p>
-        </div>
 
-        <div id="Health Tracker" class="tabcontent">
-            <h3>status</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
-                blanditiis debitis voluptatum! Delectus excepturi quidem rem beatae, ab
-                inventore vel, consequatur dolore, placeat aliquam fugit esse
-                dignissimos iste voluptas!
-            </p>
-        </div>
+        <div id="main">
+            <div id="Profile" class="tabcontent">
+                <h3>Users details</h3>
+                <h1>
+                    Welcome to dashboard, <%= user.username %>
+                </h1>
+                <p>
+                <h3> Name: <%= user.username %>
+                </h3>
+                <h3> Email: <%= user.email %>
+                </h3>
+                <h3>Age:</h3>
+                <h3> Gender:</h3>
+                <h3>Country:</h3>
+                </p>
+            </div>
 
-        <div id="AI Voice Assistant" class="tabcontent">
-            <h3>Chatbot</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+            <div id="Health Tracker" class="tabcontent">
+                <h3>status</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni optio
+                    blanditiis debitis voluptatum! Delectus excepturi quidem rem beatae, ab
+                    inventore vel, consequatur dolore, placeat aliquam fugit esse
+                    dignissimos iste voluptas!
+                </p>
+            </div>
 
-        <div id="Exercise" class="tabcontent">
-            <h3>Exercise</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+            <div id="AI Voice Assistant" class="tabcontent">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNFJ43gIjQgxezyf5bwYvp2cl0f4l9DFbxNT5Y4gjs&s"
+                    alt="">
+                <h3>Chatbot</h3>
+                <p>
 
-        <div id="Meditation" class="tabcontent">
-            <h3>Meditation</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+                </p>
+            </div>
 
-        <div id="Nutritional Guide" class="tabcontent">
-            <h3>Nutritional</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+            <!-- <div id="Exercise" class="tabcontent">
+                <h3>Exercise</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
+                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
+                    beatae praesentium voluptates perferendis corrupti incidunt architecto
+                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
+                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
+                    expedita rem quam qui aliquam quia odio modi neque!
+                </p>
+            </div>
 
-        <div id="Individual Therapy" class="tabcontent">
-            <h3>Individual Therapy</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+            <div id="Meditation" class="tabcontent">
+                <h3>Meditation</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
+                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
+                    beatae praesentium voluptates perferendis corrupti incidunt architecto
+                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
+                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
+                    expedita rem quam qui aliquam quia odio modi neque!
+                </p>
+            </div> -->
 
-        <div id="Discussion Forum" class="tabcontent">
-            <h3>Forum</h3>
-            <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                beatae praesentium voluptates perferendis corrupti incidunt architecto
-                neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                expedita rem quam qui aliquam quia odio modi neque!
-            </p>
-        </div>
+            <div id="Nutritional Guide" class="tabcontent">
+                <h3>Nutritional</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
+                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
+                    beatae praesentium voluptates perferendis corrupti incidunt architecto
+                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
+                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
+                    expedita rem quam qui aliquam quia odio modi neque!
+                </p>
+            </div>
 
+            <div id="Individual Therapy" class="tabcontent">
+                <h3>Individual Therapy</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
+                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
+                    beatae praesentium voluptates perferendis corrupti incidunt architecto
+                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
+                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
+                    expedita rem quam qui aliquam quia odio modi neque!
+                </p>
+            </div>
+
+            <div id="Discussion Forum" class="tabcontent">
+                <h3>Forum</h3>
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
+                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
+                    beatae praesentium voluptates perferendis corrupti incidunt architecto
+                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
+                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
+                    expedita rem quam qui aliquam quia odio modi neque!
+                </p>
+            </div>
+        </div>
         <!-- review section -->
 
         <!-- footer -->
@@ -186,12 +189,24 @@
             crossorigin="anonymous"></script>
 
         <script>
+            // function openNav() {
+            //     document.getElementById("mySidenav").style.display = "block";
+            // }
+
+            // function closeNav() {
+            //     document.getElementById("mySidenav").style.display = "none";
+            // }
+
             function openNav() {
-                document.getElementById("mySidenav").style.display = "block";
+                document.getElementById("mySidenav").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
             }
 
             function closeNav() {
-                document.getElementById("mySidenav").style.display = "none";
+                document.getElementById("mySidenav").style.width = "0";
+                document.getElementById("main").style.marginLeft = "0";
+                document.body.style.backgroundColor = "white";
             }
         </script>
 

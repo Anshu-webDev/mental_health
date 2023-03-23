@@ -1,29 +1,32 @@
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+}
+
 /* navbar */
 
 .navbar {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .navbar-brand {
-    font-family: 'Ubuntu';
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #fff;
-    padding-left: 20px;
+  font-family: 'Ubuntu';
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  padding-left: 20px;
 }
 
 .nav-link {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-  }
-  
-  .sidenav {
+  font-family: "Lato", sans-serif;
+}
+
+
+/*   
+  .siden .sidenav {
     display: none;
     height: 100%;
     width: 300px;
@@ -46,72 +49,123 @@ body {
   
   .sidenav a:hover {
     color: #000000;
-  }
-  
-  .sidenav .closebtn {
+  }av .closebtn {
     position: absolute;
     top: 0;
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
+  } */
 
-  
-  body {
-    font-family: "Lato", sans-serif;
+/* try an error */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #b48a00;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #000000;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
   }
 
-  /* Style the tab */
-  .tab {
-    float: left;
+  .sidenav a {
+    font-size: 18px;
   }
+}
 
-  /* Style the buttons inside the tab */
-  .tab button {
-    background-color: inherit;
-    color: white;
-    border: none;
-    outline: none;
-  }
-  .tab button:hover {
-    color: #000000;
-  }
+/* try and error */
 
-  /* Change background color of buttons on hover */
+body {
+  font-family: "Lato", sans-serif;
+}
 
-  /* Create an active/current "tab button" class */
-  .tab button.active {
-    background-color: rgb(223, 155, 28);
-  }
-  .sidenav button {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #ffffff;
-    display: block;
-  }
+/* Style the tab */
+.tab {
+  float: left;
+}
 
-  .sidenav button:hover {
-    color: #000000;
-  }
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  color: white;
+  border: none;
+  outline: none;
+}
+
+.tab button:hover {
+  color: #000000;
+}
+
+/* Change background color of buttons on hover */
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+  background-color: rgb(223, 155, 28);
+}
+
+.sidenav button {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffffff;
+  display: block;
+}
+
+.sidenav button:hover {
+  color: #000000;
+}
 
 /* footer */
 .footer {
-    width: 100%;
-    position: fixed;
-    background-color: #ffd200;
-    /* padding: 30px 0 20px; */
-    text-align: center;
-    left: 0;
-    bottom: 0;
-  
+  width: 100%;
+  position: fixed;
+  background-color: #ffd200;
+  /* padding: 30px 0 20px; */
+  text-align: center;
+  left: 0;
+  bottom: 0;
+
 }
 
 
-.footer-container i{
-    margin: 10px 10px;
+.footer-container i {
+  margin: 10px 10px;
 }
-.footer-container p{
-    margin: 10px;
+
+.footer-container p {
+  margin: 10px;
 }
