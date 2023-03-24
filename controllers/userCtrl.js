@@ -80,6 +80,22 @@ const ai_voice = (req, res) => {
     }
 }
 
+const nutritional_guide = (req, res) => {
+    if (req.session.user) {
+        res.render("nutritional_guide", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
+const discussion = (req, res) => {
+    if (req.session.user) {
+        res.render("discussion", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
 const logout = (req, res) => {
     req.session.destroy((err) => {
         if (err) {
@@ -89,4 +105,7 @@ const logout = (req, res) => {
     })
 }
 
-module.exports = { home, register, login, handleRegister, handleLogin, dashboard, health_tracker, ai_voice, logout }
+module.exports = {
+    home, register, login, handleRegister, handleLogin, dashboard, health_tracker, ai_voice,
+    nutritional_guide, discussion, logout
+}

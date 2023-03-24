@@ -80,6 +80,11 @@ body {
   transition: 0.3s;
 }
 
+.sidenav a.active {
+  background-color: rgb(223, 155, 28);
+  color: white;
+}
+
 .sidenav a:hover {
   color: #000000;
 }

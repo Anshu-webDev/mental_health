@@ -14,6 +14,8 @@ router.post('/login', Controller.handleLogin);
 router.get("/dashboard", Controller.dashboard);
 router.get("/health_tracker", Controller.health_tracker);
 router.get("/ai_voice", Controller.ai_voice);
+router.get("/nutritional_guide", Controller.nutritional_guide);
+router.get("/discussion_forum", Controller.discussion);
 
 router.get('/logout', Controller.logout)
 

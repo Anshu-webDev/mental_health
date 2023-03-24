@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dashboard</title>
+        <title>Health Tracker</title>
 
         <!-- google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,34 +27,21 @@
 
         <style>
             .chart-div {
-                width: 100%;
+                width: 40%;
                 height: 50vh;
-                /* margin: 40px; */
+                margin: 40px;
+
+                display: inline-block;
+                /* width: 40%;
+                box-sizing: border-box; */
+                padding: 10px;
             }
 
-            .container {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-
-            .box {
-                width: calc(33.33% - 10px);
-                /* adjust as needed */
-                height: 200px;
-                /* adjust as needed */
-                margin-bottom: 20px;
-                /* adjust as needed */
-            }
 
             @media (max-width: 767px) {
-                .container {
-                    flex-direction: column;
-                    align-items: center;
-                }
-
-                .box {
-                    width: 100%;
+                .chart-div {
+                    width: 70%;
+                    margin: 10px;
                 }
             }
         </style>
@@ -73,7 +60,7 @@
                     <div class="tab">
 
                         <a href="/dashboard">Profile</a>
-                        <a href="/health_tracker">Health Tracker</a>
+                        <a class="active" href="/health_tracker">Health Tracker</a>
                         <a href="/ai_voice">AI Voice Assistant</a>
                         <a href="/nutritional_guide">Nutritional Guide</a>
                         <a href="/individual_therapy">Individual Therapy</a>
@@ -128,24 +115,27 @@
                 </p>
             </div> -->
 
-        <div id="Health Tracker" class="tabcontent">
-            <h3>status</h3>
-            <p>
+
+        <div id="main">
+
+            <div id="Health Tracker" class="tabcontent">
+                <h3>status</h3>
+                <p>
 
 
+                <div>
 
+                    <div class="chart-div">
+                        <canvas id="myChart1"></canvas>
+                    </div>
 
-            <div>
+                    <div class="chart-div">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                    <div class="chart-div">
+                        <canvas id="myChart3"></canvas>
+                    </div>
 
-                <div class="chart-div">
-                    <canvas id="myChart1"></canvas>
-                </div>
-
-                <div class="chart-div">
-                    <canvas id="myChart2"></canvas>
-                </div>
-                <div class="chart-div">
-                    <canvas id="myChart3"></canvas>
                 </div>
 
             </div>
