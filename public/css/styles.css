@@ -150,16 +150,17 @@
 
 .formContainer .formWrapper {
     background-color: #ffd200;
+    box-shadow: 1px 1px 8px 0 grey;
     padding: 20px 60px;
     border-radius: 20%;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
 }
 
 .formWrapper .title {
-    color: #5d5b8d;
+    color: #272394;
     font-size: 24px;
 }
 

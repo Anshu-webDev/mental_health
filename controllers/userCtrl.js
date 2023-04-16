@@ -42,7 +42,7 @@ const handleLogin = (req, res) => {
                     // create session then redirect to dashboard
                     let sess = req.session;
                     sess.user = foundUser;
-                    res.redirect("/dashboard");
+                    res.redirect("/health_tracker");
                 } else {
                     // incorrect password
                     res.redirect("/login");

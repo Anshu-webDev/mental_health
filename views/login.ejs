@@ -30,12 +30,15 @@
         <div class='formContainer'>
             <div class='formWrapper'>
 
-                <span class='title'>Login</span>
-                <form class="loginRegisterForm" action="/login" method="post">
+                <span class='title'>
+                    <h3>Login</h3>
+                </span>
+                <form onsubmit="return validateForm()" name="loginForm" class="loginRegisterForm" action="/login"
+                    method="post">
                     <label>Email</label>
-                    <input type='email' name="email" placeholder='Enter Your Email' />
+                    <input type='email' name="email" placeholder='Enter Your Email' required />
                     <label>Password</label>
-                    <input type='password' name="password" placeholder='Enter Password' />
+                    <input type='password' name="password" placeholder='Enter Password' required />
                     <button>Login</button>
                     <!-- {err && <span>Something went wrong!</span>} -->
                 </form>
@@ -45,6 +48,18 @@
             </div>
         </div>
 
+
+        <script>
+            function validateForm() {
+                let x = document.forms["loginForm"]["password"].value;
+
+                if (x.length < 6) {
+                    alert("password length should be greater than 6");
+                    return false;
+                }
+
+            }
+        </script>
     </body>
 
 </html>

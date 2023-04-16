@@ -33,18 +33,19 @@
             <div class='formWrapper'>
                 <span class='title'>Create your Account</span>
 
-                <form class="loginRegisterForm" action="/register" method="post">
+                <form onsubmit="return validateForm()" name="registerForm" class="loginRegisterForm" action="/register"
+                    method="post">
                     <label>Username</label>
-                    <input type='text' name="username" placeholder='Display name' />
+                    <input type='text' name="username" placeholder='Enter username' required />
                     <label>Email</label>
-                    <input type='email' name="email" placeholder='email' />
+                    <input type='email' name="email" placeholder='email' required />
                     <label>Password</label>
-                    <input type='password' name="password" placeholder='password' />
+                    <input type='password' name="password" placeholder='password' required />
 
                     <label>Confirm Password</label>
-                    <input type='password' name="confirmPassword" placeholder='confirm password' />
+                    <input type='password' name="confirmPassword" placeholder='confirm password' required />
 
-                    <button type="submit">Sign up</button>
+                    <button type="submit" name="submit">Sign up</button>
 
                 </form>
 
@@ -54,6 +55,24 @@
             </div>
         </div>
 
+
+        <script>
+
+            function validateForm() {
+                let x = document.forms["registerForm"]["password"].value;
+                let y = document.forms["registerForm"]["confirmPassword"].value;
+
+                if (x.length < 6) {
+                    alert("password length should be greater than 6");
+                    return false;
+                }
+
+                if (x != y) {
+                    alert("password and confirm password should be same");
+                    return false;
+                }
+            }
+        </script>
     </body>
 
 </html>
