@@ -26,79 +26,80 @@
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 		<link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" />
-		
+
 		<style>
-@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
-.card {
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-  width: 400px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
-}
+			@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
 
-.card-header {
-  background-color: #e4c61e;
-  padding: 10px;
-  text-align: center;
-}
+			.card {
+				border: 1px solid #ccc;
+				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+				width: 400px;
+				margin: 0 auto;
+				font-family: Arial, sans-serif;
+			}
 
-.card-body {
-  padding: 20px;
-}
+			.card-header {
+				background-color: #e4c61e;
+				padding: 10px;
+				text-align: center;
+			}
 
-.form-group {
-margin-top: 10px;
-  margin-bottom: 30px;
-}
+			.card-body {
+				padding: 20px;
+			}
 
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
+			.form-group {
+				margin-top: 10px;
+				margin-bottom: 30px;
+			}
 
-textarea{
-display: block;
-  width: 90%;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 16px;
-  margin-top: 10px;
-}
+			label {
+				display: block;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+
+			textarea {
+				display: block;
+				width: 90%;
+				border: 2px solid #ccc;
+				border-radius: 10px;
+				font-size: 16px;
+				margin-top: 10px;
+			}
 
 
-input[type="date"],
-input[type="time"],
-select,
-button {
-  display: block;
-  width: 80%;
-  padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 10px;
-  font-size: 20px;
-  margin-top: 10px;
-}
+			input[type="date"],
+			input[type="time"],
+			select,
+			button {
+				display: block;
+				width: 80%;
+				padding: 10px;
+				border: 2px solid #ccc;
+				border-radius: 10px;
+				font-size: 20px;
+				margin-top: 10px;
+			}
 
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 15px;
-  margin-top: 10px;
-  
-}
+			button {
+				background-color: #4CAF50;
+				color: white;
+				border: none;
+				cursor: pointer;
+				display: block;
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				font-size: 15px;
+				margin-top: 10px;
 
-button:hover {
-  background-color: #45a049;
-}
+			}
+
+			button:hover {
+				background-color: #45a049;
+			}
 		</style>
 	</head>
 
@@ -116,9 +117,9 @@ button:hover {
 
 						<a href="/dashboard">Profile</a>
 						<a href="/health_tracker">Health Tracker</a>
-						<a class="active" href="/ai_voice">AI Voice Assistant</a>
+						<a href="/ai_voice">AI Voice Assistant</a>
 						<a href="/nutritional_guide">Nutritional Guide</a>
-						<a href="/individual_therapy">Individual Therapy</a>
+						<a class="active" href="/individual_therapy">Individual Therapy</a>
 						<a href="/discussion_forum">Discussion Forum</a>
 						<a href="/logout">Logout</a>
 
@@ -128,29 +129,29 @@ button:hover {
 		</section>
 
 		<div class="card">
-            <div class="card-header">
-              <h3>Book an Appointment</h3>
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="name">Reason for Meet</label>
-                  <textarea name="name" id="" cols="10" rows="5"></textarea>
-                </div>
-                <div class="form-group">
-                  <label for="date">Date:</label>
-                  <input type="date" id="date" name="date" required>
-                </div>
-                <div class="form-group">
-                  <label for="time">Time:</label>
-                  <input type="time" id="time" name="time" required>
-                </div>
-                <div class="form-group">
-                  <button type="submit">Book Appointment</button>
-                </div>
-              </form>
-            </div>
-          </div>
+			<div class="card-header">
+				<h3>Book an Appointment</h3>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="form-group">
+						<label for="name">Reason for Meet</label>
+						<textarea name="name" id="" cols="10" rows="5"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="date">Date:</label>
+						<input type="date" id="date" name="date" required>
+					</div>
+					<div class="form-group">
+						<label for="time">Time:</label>
+						<input type="time" id="time" name="time" required>
+					</div>
+					<div class="form-group">
+						<button type="submit">Book Appointment</button>
+					</div>
+				</form>
+			</div>
+		</div>
 
 
 		<div class="footer">
@@ -193,7 +194,7 @@ button:hover {
 			}
 		</script>
 
-		
+
 
 	</body>
 

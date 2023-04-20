@@ -71,10 +71,10 @@ const edit_profile = (req, res) => {
     }
 }
 
-const handleEditProfile = async (req, res) => {
+const handleEditProfile = (req, res) => {
     // console.log(req.body);
     // console.log(req.session.user);
-    const { username, email, address, hobbies, job } = req.body;
+    const { username, email, age, gender, address, hobbies, job, dwh, phy_ill } = req.body;
 
     // let doc = User.findOneAndUpdate({ "_id": req.session.user._id }, {
     //     username: username,
@@ -85,26 +85,30 @@ const handleEditProfile = async (req, res) => {
     // }, { new: true });
 
     // console.log(req.session.user._id);
-    let data = await User.updateOne({ _id: req.session.user._id }, {
+    let data = User.findOneAndUpdate({ _id: req.session.user._id }, {
         username: username,
         email: email,
+        age: age,
+        gender: gender,
         address: address,
         hobbies: hobbies,
-        job: job
-    }, function (err, result) {
+        job: job,
+        dwh: dwh,
+        phy_ill: phy_ill
+    }, { useFindAndModify: false, new: true }, function (err, result) {
         if (err) {
             console.log(err);
         } else {
-            console.log(result);
+            // console.log(result);
             console.log("Successfully updated the document");
         }
     });
-
-    User.findOne({ _id: req.session.user._id }, (err, foundUser) => {
-        if (foundUser) {
-            req.session.user = foundUser;
-        }
-    })
+    req.session.user = data._update;
+    // User.findOne({ _id: req.session.user._id }, (err, foundUser) => {
+    //     if (foundUser) {
+    //         req.session.user = foundUser;
+    //     }
+    // })
     res.redirect("/dashboard");
 
 

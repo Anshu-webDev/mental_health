@@ -6,9 +6,13 @@ const userSchema = new mongoose.Schema({
     username: String,
     email: String,
     password: String,
+    age: String,
+    gender: String,
     address: String,
     hobbies: String,
     job: String,
+    dwh: String,
+    phy_ill: String,
 })
 
 const User = conn.model("user", userSchema);

@@ -26,15 +26,35 @@
 
 
         <style>
+            .chart-d {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 10px 0;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .tabcontent {
+                margin-left: 5%;
+            }
+
             .chart-div {
                 width: 40%;
                 height: 50vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px 0;
+
+
+                /* width: 40%;
+                height: 50vh;
                 margin: 40px;
 
-                display: inline-block;
+                display: inline-block; */
                 /* width: 40%;
                 box-sizing: border-box; */
-                padding: 10px;
+                /* padding: 10px; */
             }
 
 
@@ -98,45 +118,32 @@
         <!-- end section title -->
 
 
-        <!-- <div id="main">
-            <div id="Profile" class="tabcontent">
-                <h3>Users details</h3>
-                <h1>
-                    Welcome to dashboard, <%= user.username %>
-                </h1>
-                <p>
-                <h3> Name: <%= user.username %>
-                </h3>
-                <h3> Email: <%= user.email %>
-                </h3>
-                <h3>Age:</h3>
-                <h3> Gender:</h3>
-                <h3>Country:</h3>
-                </p>
-            </div> -->
-
-
         <div id="main">
 
             <div id="Health Tracker" class="tabcontent">
-                <h3>status</h3>
+                <h3>Tracker</h3>
                 <p>
 
 
-                <div>
+                <div class="chart-d">
 
                     <div class="chart-div">
                         <canvas id="myChart1"></canvas>
+                        <h5>Monthly Depression level</h5>
                     </div>
 
                     <div class="chart-div">
                         <canvas id="myChart2"></canvas>
+                        <h5>Data by percent</h5>
                     </div>
-                    <div class="chart-div">
-                        <canvas id="myChart3"></canvas>
-                    </div>
-
                 </div>
+
+                <div class="chart-div">
+                    <canvas id="myChart3"></canvas>
+                    <h5>Yes/no</h5>
+                </div>
+
+
 
             </div>
 
