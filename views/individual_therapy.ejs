@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Therapy</title>
+
+		<!-- google fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&family=Ubuntu:wght@300&display=swap"
+			rel="stylesheet" />
+
+		<!-- font awesome -->
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+		<!-- bootstrap 5.3 -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+			crossorigin="anonymous" />
+
+		<link rel="stylesheet" href="css/dash.css" />
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+		<link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" />
+		
+		<style>
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.card-header {
+  background-color: #e4c61e;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+textarea{
+display: block;
+  width: 90%;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+
+input[type="date"],
+input[type="time"],
+select,
+button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-top: 10px;
+  
+}
+
+button:hover {
+  background-color: #45a049;
+}
+		</style>
+	</head>
+
+	<body>
+
+		<section id="title">
+			<nav class="navbar navbar-expand-md navbar-light bg-warning">
+				<span style="font-size: 30px; cursor: pointer; padding-left: 10px" onclick="openNav()">&#9776;
+				</span>
+				<a class="navbar-brand" href="">TalkSpace</a>
+
+				<div id="mySidenav" class="sidenav">
+					<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					<div class="tab">
+
+						<a href="/dashboard">Profile</a>
+						<a href="/health_tracker">Health Tracker</a>
+						<a class="active" href="/ai_voice">AI Voice Assistant</a>
+						<a href="/nutritional_guide">Nutritional Guide</a>
+						<a href="/individual_therapy">Individual Therapy</a>
+						<a href="/discussion_forum">Discussion Forum</a>
+						<a href="/logout">Logout</a>
+
+					</div>
+				</div>
+			</nav>
+		</section>
+
+		<div class="card">
+            <div class="card-header">
+              <h3>Book an Appointment</h3>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Reason for Meet</label>
+                  <textarea name="name" id="" cols="10" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="date">Date:</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                  <label for="time">Time:</label>
+                  <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit">Book Appointment</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+
+		<div class="footer">
+			<div class="footer-container">
+				<p class="copyright">© TalkSpace </p>
+				<i class="fa fa-facebook-square" style="font-size: 28px"></i>
+				<i class="fa fa fa-instagram" style="font-size: 28px"></i>
+				<i class="fa fa fa-github" style="font-size: 28px"></i>
+			</div>
+		</div>
+
+
+
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+			crossorigin="anonymous"></script>
+
+
+
+		<script>
+			// function openNav() {
+			//     document.getElementById("mySidenav").style.display = "block";
+			// }
+
+			// function closeNav() {
+			//     document.getElementById("mySidenav").style.display = "none";
+			// }
+
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "250px";
+				document.getElementById("main").style.marginLeft = "250px";
+				document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+			}
+
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+				document.body.style.backgroundColor = "white";
+			}
+		</script>
+
+		
+
+	</body>
+
+</html>
