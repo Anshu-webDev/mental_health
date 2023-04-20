@@ -149,6 +149,14 @@ const nutritional_guide = (req, res) => {
     }
 }
 
+const individual_therapy = (req, res) => {
+    if (req.session.user) {
+        res.render("individual_therapy", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
 const discussion = (req, res) => {
     if (req.session.user) {
         res.render("discussion", { user: req.session.user });
@@ -168,5 +176,5 @@ const logout = (req, res) => {
 
 module.exports = {
     home, register, login, handleRegister, handleLogin, dashboard, edit_profile, handleEditProfile, health_tracker, ai_voice,
-    nutritional_guide, discussion, logout
+    nutritional_guide, individual_therapy, discussion, logout
 }
