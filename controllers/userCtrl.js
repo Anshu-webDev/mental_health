@@ -14,9 +14,9 @@ const login = (req, res) => {
 
 const handleRegister = (req, res) => {
     const { username, email, password } = req.body;
-    console.log(username);
-    console.log(email);
-    console.log(password);
+    // console.log(username);
+    // console.log(email);
+    // console.log(password);
 
     const user = new User({
         username: username,
@@ -63,6 +63,73 @@ const dashboard = (req, res) => {
     }
 }
 
+const edit_profile = (req, res) => {
+    if (req.session.user) {
+        res.render("edit_profile", { user: req.session.user });
+    } else {
+        res.redirect("/login");
+    }
+}
+
+const handleEditProfile = (req, res) => {
+    // console.log(req.body);
+    // console.log(req.session.user);
+    const { username, email, address, hobbies, job } = req.body;
+    // User.findByIdAndUpdate(req.session.user._id, {
+    //     username: username,
+    //     email: email,
+    //     address: address,
+    //     hobbies: hobbies,
+    //     job: job
+    // }, (err, doc) => {
+    //     if (!err) {
+    //         console.log(doc);
+    //         res.redirect("/dashboard");
+    //     }
+    // })
+
+    // let doc = User.findOneAndUpdate({ "_id": req.session.user._id }, {
+    //     username: username,
+    //     email: email,
+    //     address: address,
+    //     hobbies: hobbies,
+    //     job: job
+    // }, { new: true });
+
+    console.log(req.session.user._id);
+    User.updateOne({ _id: req.session.user._id }, {
+        username: username,
+        email: email,
+        address: address,
+        hobbies: hobbies,
+        job: job
+    }, function (err, result) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log(result);
+            console.log("Successfully updated the document");
+            res.redirect("/dashboard");
+        }
+    });
+
+
+    // User.updateOne({ "_id": req.session.user._id }, {
+    //     "$set": {
+    //         "username": username,
+    //         "email": email,
+    //         "address": address,
+    //         "hobbies": hobbies,
+    //         "job": job
+    //     }
+    // }, (err, result) => {
+    //     if (!err) {
+    //         console.log(result);
+    //         res.redirect("/dashboard");
+    //     }
+    // })
+}
+
 
 const health_tracker = (req, res) => {
     if (req.session.user) {
@@ -106,6 +173,6 @@ const logout = (req, res) => {
 }
 
 module.exports = {
-    home, register, login, handleRegister, handleLogin, dashboard, health_tracker, ai_voice,
+    home, register, login, handleRegister, handleLogin, dashboard, edit_profile, handleEditProfile, health_tracker, ai_voice,
     nutritional_guide, discussion, logout
 }

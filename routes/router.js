@@ -12,6 +12,10 @@ router.get('/login', Controller.login);
 router.post('/login', Controller.handleLogin);
 
 router.get("/dashboard", Controller.dashboard);
+
+router.get("/edit_profile", Controller.edit_profile);
+router.post("/edit_profile", Controller.handleEditProfile);
+
 router.get("/health_tracker", Controller.health_tracker);
 router.get("/ai_voice", Controller.ai_voice);
 router.get("/nutritional_guide", Controller.nutritional_guide);

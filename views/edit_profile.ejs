@@ -5,7 +5,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Dashboard</title>
+        <title>Edit Profile</title>
 
         <!-- google fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -138,48 +138,45 @@
                     <h2>My Profile</h2>
                     <div class="card">
                         <div class="card-body">
-                            <a href="/edit_profile"><i class="fa fa-pen fa-xs edit"></i></a>
-                            <!-- <button class="btn btn-primary edit">Edit</button> -->
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td><b>Name</b></td>
-                                        <td>:</td>
-                                        <td>
-                                            <%= user.username %>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Email</b></td>
-                                        <td>:</td>
-                                        <td>
-                                            <%= user.email %>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Address</b></td>
-                                        <td>:</td>
-                                        <td>
-                                            <%= user.address %>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Hobbies</b></td>
-                                        <td>:</td>
-                                        <td>
-                                            <%= user.hobbies %>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td><b>Job</b></td>
-                                        <td>:</td>
-                                        <td>
-                                            <%= user.job %>
-                                        </td>
-                                    </tr>
+                            <form action="/edit_profile" method="post">
+                                <!-- <a href="/edit_profile"><i class="fa fa-pen fa-xs edit"></i></a> -->
+                                <button class="btn btn-primary edit" type="submit">Save</button>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Name</b></td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" name="username" value="<%= user.username %>">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Email</b></td>
+                                            <td>:</td>
+                                            <td>
+                                                <input type="text" name="email" value="<%= user.email %>">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Address</b></td>
+                                            <td>:</td>
+                                            <td><input type="text" name="address" placeholder="India"></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Hobbies</b></td>
+                                            <td>:</td>
+                                            <td><input type="text" name="hobbies" placeholder="Diving, Reading Book">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Job</b></td>
+                                            <td>:</td>
+                                            <td><input type="text" name="job" placeholder="Web Developer"></td>
+                                        </tr>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>

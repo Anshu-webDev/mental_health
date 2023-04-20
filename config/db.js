@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://localhost:27017/mentalHealth", {
+// const url = "mongodb+srv://admin-anshu:Test123@cluster0.grusn.mongodb.net/mentalHealth";
+const url = "mongodb://localhost:27017/mentalHealth";
+mongoose.connect(url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 }).then(con => {
     console.log("connected to DB");
 }).catch(error => {
