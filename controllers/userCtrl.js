@@ -71,22 +71,10 @@ const edit_profile = (req, res) => {
     }
 }
 
-const handleEditProfile = (req, res) => {
+const handleEditProfile = async (req, res) => {
     // console.log(req.body);
     // console.log(req.session.user);
     const { username, email, address, hobbies, job } = req.body;
-    // User.findByIdAndUpdate(req.session.user._id, {
-    //     username: username,
-    //     email: email,
-    //     address: address,
-    //     hobbies: hobbies,
-    //     job: job
-    // }, (err, doc) => {
-    //     if (!err) {
-    //         console.log(doc);
-    //         res.redirect("/dashboard");
-    //     }
-    // })
 
     // let doc = User.findOneAndUpdate({ "_id": req.session.user._id }, {
     //     username: username,
@@ -96,8 +84,8 @@ const handleEditProfile = (req, res) => {
     //     job: job
     // }, { new: true });
 
-    console.log(req.session.user._id);
-    User.updateOne({ _id: req.session.user._id }, {
+    // console.log(req.session.user._id);
+    let data = await User.updateOne({ _id: req.session.user._id }, {
         username: username,
         email: email,
         address: address,
@@ -109,9 +97,15 @@ const handleEditProfile = (req, res) => {
         } else {
             console.log(result);
             console.log("Successfully updated the document");
-            res.redirect("/dashboard");
         }
     });
+
+    User.findOne({ _id: req.session.user._id }, (err, foundUser) => {
+        if (foundUser) {
+            req.session.user = foundUser;
+        }
+    })
+    res.redirect("/dashboard");
 
 
     // User.updateOne({ "_id": req.session.user._id }, {
