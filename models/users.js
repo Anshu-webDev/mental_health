@@ -5,7 +5,10 @@ const conn = require("../config/db")
 const userSchema = new mongoose.Schema({
     username: String,
     email: String,
-    password: String
+    password: String,
+    address: String,
+    hobbies: String,
+    job: String,
 })
 
 const User = conn.model("user", userSchema);

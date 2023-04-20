@@ -5,7 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Chatbot UI</title>
+		<title>Therapy</title>
 
 		<!-- google fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,9 +26,79 @@
 
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 		<link href="css/bootstrap-4.3.1.min.css" rel="stylesheet" />
-		<link rel="stylesheet" href="css/chatstyle.css">
+		
 		<style>
+@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+.card {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
 
+.card-header {
+  background-color: #e4c61e;
+  padding: 10px;
+  text-align: center;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-group {
+margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+textarea{
+display: block;
+  width: 90%;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+
+input[type="date"],
+input[type="time"],
+select,
+button {
+  display: block;
+  width: 80%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+  margin-top: 10px;
+  
+}
+
+button:hover {
+  background-color: #45a049;
+}
 		</style>
 	</head>
 
@@ -57,20 +127,30 @@
 			</nav>
 		</section>
 
-		<div class="chat-container">
-		
-			<div class="chat-history">
-				
-			</div>
-			<div class="chat-input">
-				<input type="text" id="user-input" onkeyup="ChangeSendIcon(this)"  style="display: none;">
-				<button id="voice-input-button" class="audio" style="align-items: center;">
-					<i style="cursor:pointer;" id="audio" onkeyup="ChangeSendIcon(this)"  class="fas fa-microphone fa-2x"></i>
-			
-				</button>
-				
-			</div>
-		</div>
+		<div class="card">
+            <div class="card-header">
+              <h3>Book an Appointment</h3>
+            </div>
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="name">Reason for Meet</label>
+                  <textarea name="name" id="" cols="10" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="date">Date:</label>
+                  <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                  <label for="time">Time:</label>
+                  <input type="time" id="time" name="time" required>
+                </div>
+                <div class="form-group">
+                  <button type="submit">Book Appointment</button>
+                </div>
+              </form>
+            </div>
+          </div>
 
 
 		<div class="footer">
@@ -113,7 +193,7 @@
 			}
 		</script>
 
-		<script src="js/chat.js"></script>
+		
 
 	</body>
 

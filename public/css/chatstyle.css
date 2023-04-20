@@ -16,13 +16,6 @@ body {
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* .header {
-	display: flex;
-	align-items: center;
-	margin-bottom: 20px;
-} */
-
-
 .chat-history {
   height: 420px;
   overflow-y: scroll;
@@ -51,6 +44,7 @@ body {
 
 .bot-message {
   background-color: #e0ad1f;
+  width: 50%;
   color: #333333;
   float: left;
   clear: both;
@@ -66,28 +60,21 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
-.chat-input input {
-  flex: 1;
-  height: 30px;
-  padding: 5px 10px;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  outline: none;
-}
-
 .chat-input button {
-  margin-left: 10px;
-  padding: 5px;
-  border: none;
-  background-color: transparent;
+  margin-left: 50%;
+  width: 60px;
+  height: 60px;
+  background: #e0ad1f;
+  color: green;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
+  border-radius: 50%;
+  border: none;
+  text-decoration: none;
 }
 
-.chat-input button img {
-  width: 20px;
-  height: 20px;
-}
 .audio .fa-stop {
   color: red;
 }
