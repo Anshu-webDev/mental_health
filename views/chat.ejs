@@ -58,28 +58,17 @@
 		</section>
 
 		<div class="chat-container">
-			<!-- <div class="header">
-			<h1>Chatbot</h1>
-			</div> -->
+		
 			<div class="chat-history">
-				<div class="message bot-message">
-					<p>Hello! How can I help you today?</p>
-				</div>
-				<!-- <div class="message user-message">
-				<p>Hi, I have a question about your products.</p>
-			</div>
-			<div class="message bot-message">
-				<p>Sure, what do you want to know?</p>
-			</div> -->
+				
 			</div>
 			<div class="chat-input">
-				<input type="text" id="user-input" onkeyup="ChangeSendIcon(this)"
-					placeholder="Type your message here...">
-				<button id="voice-input-button" class="audio">
-					<i style="cursor:pointer;" id="audio" class="fas fa-microphone fa-2x"></i>
-					<i id="send" class="fa fa-paper-plane fa-2x" style="display:none"></i>
+				<input type="text" id="user-input" onkeyup="ChangeSendIcon(this)"  style="display: none;">
+				<button id="voice-input-button" class="audio" style="align-items: center;">
+					<i style="cursor:pointer;" id="audio" onkeyup="ChangeSendIcon(this)"  class="fas fa-microphone fa-2x"></i>
+			
 				</button>
-
+				
 			</div>
 		</div>
 
