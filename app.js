@@ -19,6 +19,8 @@ app.use(session({
 app.use(flash());
 app.use(router);
 
+
+
 app.listen(process.env.PORT || port, () => {
     console.log(`server is listening on port ${port}`);
 })

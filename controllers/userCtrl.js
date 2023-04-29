@@ -140,6 +140,21 @@ const ai_voice = (req, res) => {
     }
 }
 
+const handleAudio = (req, res)=>{
+    console.log(req.file.filename);
+    let data = User.findOneAndUpdate({ _id: req.session.user._id }, {
+        $push: {
+            audio_rec : req.file.filename
+        }
+    }, { useFindAndModify: false, new: true }, (err, result)=>{
+        if(!err){
+            req.flash("message", "Appointment booked successfully");
+            res.redirect("/individual_therapy");
+        }
+    })
+    req.session.user.audio_rec.push(data._update.$push.audio_rec);
+}
+
 const nutritional_guide = (req, res) => {
     if (req.session.user) {
         res.render("nutritional_guide", { user: req.session.user });
@@ -189,5 +204,5 @@ const logout = (req, res) => {
 
 module.exports = {
     home, register, login, handleRegister, handleLogin, dashboard, edit_profile, handleEditProfile, health_tracker, ai_voice,
-    nutritional_guide, individual_therapy, handleIndividual_therapy, discussion, logout
+    nutritional_guide, handleAudio, individual_therapy, handleIndividual_therapy, discussion, logout
 }

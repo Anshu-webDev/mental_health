@@ -58,6 +58,63 @@ const sendIcon = document.getElementById('send');
 
 let isRecording = false;
 
+// function startRecording() {
+//   navigator.mediaDevices.getUserMedia({ audio: true })
+//   .then(function(stream) {
+//     const mediaRecorder = new MediaRecorder(stream);
+//     mediaRecorder.start();
+//     isRecording = true;
+    
+//     const audioChunks = [];
+//     mediaRecorder.addEventListener("dataavailable", event => {
+//       audioChunks.push(event.data);
+//     });
+    
+//     mediaRecorder.addEventListener("stop", () => {
+//       const audioBlob = new Blob(audioChunks);
+//       const formData = new FormData();
+//       formData.append('audio', audioBlob);
+      
+//       // Send audio data to server for processing and get text transcript
+      
+//       // Create new message element with audio transcript
+//       const messageContainer = document.createElement('div');
+//       messageContainer.classList.add('message');
+//       messageContainer.classList.add('user-message');
+
+//       const audioPlayer = document.createElement('audio');
+//       audioPlayer.controls = true;
+//       audioPlayer.src = URL.createObjectURL(audioBlob);
+
+//       messageContainer.appendChild(audioPlayer);
+//       chatHistory.appendChild(messageContainer);
+      
+//       isRecording = false;
+//       audioIcon.classList.remove('fa-stop');
+//       audioIcon.classList.add('fa-microphone');
+//       audioButton.disabled = false;
+//     });
+    
+//     audioIcon.classList.remove('fa-microphone');
+//     audioIcon.classList.add('fa-stop');
+//     audioButton.removeEventListener('click', startRecording);
+//     audioButton.addEventListener('click', stopRecording);
+    
+//     function stopRecording() {
+//   mediaRecorder.stop();
+//   audioButton.removeEventListener('click', stopRecording);
+//   audioButton.addEventListener('click', startRecording);
+
+//   setTimeout(function() {
+//     askQuestion();
+//   }, 1000);
+// }
+//   })
+//   .catch(function(err) {
+//     console.error("Error starting audio recording", err);
+//   });
+// }
+
 function startRecording() {
   navigator.mediaDevices.getUserMedia({ audio: true })
   .then(function(stream) {
@@ -71,12 +128,22 @@ function startRecording() {
     });
     
     mediaRecorder.addEventListener("stop", () => {
-      const audioBlob = new Blob(audioChunks);
+      const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
+      const filename = "audio" + new Date().getTime() + ".mp3";
       const formData = new FormData();
-      formData.append('audio', audioBlob);
+      formData.append('audio', audioBlob, filename);
+
+      fetch("http://localhost:3000/send_audio", {
+        method: "POST",
+        body: formData
+      }).then(async result=>{
+        console.log("success");
+      }).catch(error=>{
+        console.log(error);
+      })
       
       // Send audio data to server for processing and get text transcript
-      
+      console.log(audioBlob);
       // Create new message element with audio transcript
       const messageContainer = document.createElement('div');
       messageContainer.classList.add('message');
@@ -85,6 +152,7 @@ function startRecording() {
       const audioPlayer = document.createElement('audio');
       audioPlayer.controls = true;
       audioPlayer.src = URL.createObjectURL(audioBlob);
+      console.log(audioPlayer);
 
       messageContainer.appendChild(audioPlayer);
       chatHistory.appendChild(messageContainer);
@@ -101,21 +169,79 @@ function startRecording() {
     audioButton.addEventListener('click', stopRecording);
     
     function stopRecording() {
-  mediaRecorder.stop();
-  audioButton.removeEventListener('click', stopRecording);
-  audioButton.addEventListener('click', startRecording);
+      mediaRecorder.stop();
+      audioButton.removeEventListener('click', stopRecording);
+      audioButton.addEventListener('click', startRecording);
 
-  setTimeout(function() {
-    askQuestion();
-  }, 1000);
-}
+      setTimeout(function() {
+        askQuestion();
+      }, 1000);
+    }
   })
   .catch(function(err) {
     console.error("Error starting audio recording", err);
   });
 }
 
+// function startRecording() {
+//   navigator.mediaDevices.getUserMedia({ audio: true })
+//   .then(function(stream) {
+//     const mediaRecorder = new MediaRecorder(stream);
+//     mediaRecorder.start();
+//     isRecording = true;
+    
+//     const audioChunks = [];
+//     mediaRecorder.addEventListener("dataavailable", event => {
+//       audioChunks.push(event.data);
+//     });
+    
+//     mediaRecorder.addEventListener("stop", () => {
+//       const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
+//       const formData = new FormData();
+//       const filename = 'sound-rec/recording-' + new Date().toISOString() + '.mp3'; // Set the file name
+//       formData.append('audio', audioBlob, filename);
+      
+//       const xhr = new XMLHttpRequest();
+//       xhr.open('POST', 'http://localhost:3000/send_audio'); // Change the URL to your server endpoint
+//       xhr.send(formData);
+      
+//       // Create new message element with audio transcript
+//       const messageContainer = document.createElement('div');
+//       messageContainer.classList.add('message');
+//       messageContainer.classList.add('user-message');
 
+//       const audioPlayer = document.createElement('audio');
+//       audioPlayer.controls = true;
+//       audioPlayer.src = URL.createObjectURL(audioBlob);
+
+//       messageContainer.appendChild(audioPlayer);
+//       chatHistory.appendChild(messageContainer);
+      
+//       isRecording = false;
+//       audioIcon.classList.remove('fa-stop');
+//       audioIcon.classList.add('fa-microphone');
+//       audioButton.disabled = false;
+//     });
+    
+//     audioIcon.classList.remove('fa-microphone');
+//     audioIcon.classList.add('fa-stop');
+//     audioButton.removeEventListener('click', startRecording);
+//     audioButton.addEventListener('click', stopRecording);
+    
+//     function stopRecording() {
+//       mediaRecorder.stop();
+//       audioButton.removeEventListener('click', stopRecording);
+//       audioButton.addEventListener('click', startRecording);
+
+//       setTimeout(function() {
+//         askQuestion();
+//       }, 1000);
+//     }
+//   })
+//   .catch(function(err) {
+//     console.error("Error starting audio recording", err);
+//   });
+// }
 
 audioButton.addEventListener('click', startRecording);
 

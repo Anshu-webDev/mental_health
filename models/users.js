@@ -16,6 +16,10 @@ const userSchema = new mongoose.Schema({
     appointments: {
         type: Array,
         "default": [] 
+    },
+    audio_rec:{
+        type: Array,
+        "default" : []
     }
 })
 
