@@ -19,7 +19,9 @@ router.post("/edit_profile", Controller.handleEditProfile);
 router.get("/health_tracker", Controller.health_tracker);
 router.get("/ai_voice", Controller.ai_voice);
 router.get("/nutritional_guide", Controller.nutritional_guide);
+
 router.get("/individual_therapy", Controller.individual_therapy);
+router.post("/individual_therapy", Controller.handleIndividual_therapy);
 
 router.get("/discussion_forum", Controller.discussion);
 

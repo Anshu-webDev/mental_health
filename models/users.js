@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
     job: String,
     dwh: String,
     phy_ill: String,
+    appointments: {
+        type: Array,
+        "default": [] 
+    }
 })
 
 const User = conn.model("user", userSchema);

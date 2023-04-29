@@ -5,11 +5,11 @@ const home = (req, res) => {
 }
 
 const register = (req, res) => {
-    res.render('register');
+    res.render('register', {message: req.flash("message")});
 }
 
 const login = (req, res) => {
-    res.render('login');
+    res.render('login', {message: req.flash("message")});
 }
 
 const handleRegister = (req, res) => {
@@ -28,6 +28,7 @@ const handleRegister = (req, res) => {
         if (err) {
             console.log(err);
         } else {
+            req.flash("message", "User created successfully");
             res.redirect("/login")
         }
     })
@@ -45,10 +46,12 @@ const handleLogin = (req, res) => {
                     res.redirect("/health_tracker");
                 } else {
                     // incorrect password
+                    req.flash("message", "Incorrect password");
                     res.redirect("/login");
                 }
             } else {
                 // incorrect user
+                req.flash("message", "Incorrect username or password")
                 res.redirect("/login")
             }
         }
@@ -75,14 +78,6 @@ const handleEditProfile = (req, res) => {
     // console.log(req.body);
     // console.log(req.session.user);
     const { username, email, age, gender, address, hobbies, job, dwh, phy_ill } = req.body;
-
-    // let doc = User.findOneAndUpdate({ "_id": req.session.user._id }, {
-    //     username: username,
-    //     email: email,
-    //     address: address,
-    //     hobbies: hobbies,
-    //     job: job
-    // }, { new: true });
 
     // console.log(req.session.user._id);
     let data = User.findOneAndUpdate({ _id: req.session.user._id }, {
@@ -155,10 +150,24 @@ const nutritional_guide = (req, res) => {
 
 const individual_therapy = (req, res) => {
     if (req.session.user) {
-        res.render("individual_therapy", { user: req.session.user });
+        res.render("individual_therapy", { user: req.session.user, message: req.flash("message") });
     } else {
         res.redirect("/login");
     }
+}
+
+const handleIndividual_therapy = (req, res)=>{
+    let data = User.findOneAndUpdate({ _id: req.session.user._id }, {
+        $push: {
+            appointments : req.body
+        }
+    }, { useFindAndModify: false, new: true }, (err, result)=>{
+        if(!err){
+            req.flash("message", "Appointment booked successfully");
+            res.redirect("/individual_therapy");
+        }
+    })
+    req.session.user.appointments.push(data._update.$push.appointments);
 }
 
 const discussion = (req, res) => {
@@ -180,5 +189,5 @@ const logout = (req, res) => {
 
 module.exports = {
     home, register, login, handleRegister, handleLogin, dashboard, edit_profile, handleEditProfile, health_tracker, ai_voice,
-    nutritional_guide, individual_therapy, discussion, logout
+    nutritional_guide, individual_therapy, handleIndividual_therapy, discussion, logout
 }

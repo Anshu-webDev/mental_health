@@ -253,6 +253,30 @@
             </p>
         </div>
 
+
+        <div class="container">
+            <h2>Your Appointments </h2>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>Reason</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% user.appointments.forEach(function(appoint){ %>
+                        <tr>
+                            <td> <%= appoint.reason %> </td>
+                            <td> <%= appoint.date %> </td>
+                            <td><%= appoint.time %> </td>
+                        </tr>
+                  <%  }) %>
+                    
+                </tbody>
+            </table>
+        </div>
+
         <!-- <div id="AI Voice Assistant" class="tabcontent">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNFJ43gIjQgxezyf5bwYvp2cl0f4l9DFbxNT5Y4gjs&s"
         alt="">
@@ -262,66 +286,7 @@
     </p>
 </div> -->
 
-        <!-- <div id="Exercise" class="tabcontent">
-                <h3>Exercise</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                    beatae praesentium voluptates perferendis corrupti incidunt architecto
-                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                    expedita rem quam qui aliquam quia odio modi neque!
-                </p>
-            </div>
-
-            <div id="Meditation" class="tabcontent">
-                <h3>Meditation</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                    beatae praesentium voluptates perferendis corrupti incidunt architecto
-                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                    expedita rem quam qui aliquam quia odio modi neque!
-                </p>
-            </div> -->
-
-        <!-- <div id="Nutritional Guide" class="tabcontent">
-                <h3>Nutritional</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                    beatae praesentium voluptates perferendis corrupti incidunt architecto
-                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                    expedita rem quam qui aliquam quia odio modi neque!
-                </p>
-            </div>
-
-            <div id="Individual Therapy" class="tabcontent">
-                <h3>Individual Therapy</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                    beatae praesentium voluptates perferendis corrupti incidunt architecto
-                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                    expedita rem quam qui aliquam quia odio modi neque!
-                </p>
-            </div>
-
-            <div id="Discussion Forum" class="tabcontent">
-                <h3>Forum</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis non error
-                    ipsum, quod sit, fuga exercitationem temporibus ut iusto quibusdam
-                    beatae praesentium voluptates perferendis corrupti incidunt architecto
-                    neque saepe, laboriosam qui voluptatem blanditiis quam consectetur. Eos
-                    corporis aliquid minus libero quisquam a, dignissimos nemo. Non voluptas
-                    expedita rem quam qui aliquam quia odio modi neque!
-                </p>
-            </div>
-        </div> -->
+        <!--    </div> -->
         <!-- review section -->
 
         <!-- footer -->

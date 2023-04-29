@@ -2,6 +2,7 @@ const express = require("express");
 const port = 3000;
 const router = require('./routes/router')
 const session = require("express-session")
+const flash = require("connect-flash")
 
 const app = express();
 
@@ -15,7 +16,7 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-
+app.use(flash());
 app.use(router);
 
 app.listen(process.env.PORT || port, () => {
