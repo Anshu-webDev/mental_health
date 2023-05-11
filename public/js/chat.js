@@ -58,44 +58,68 @@ const sendIcon = document.getElementById('send');
 
 let isRecording = false;
 
+
 let rec = null;
 let audioStream = null;
-
 
 function startRecording() {
   navigator.mediaDevices.getUserMedia({ audio: true })
   .then(function(stream) {
+    const mediaRecorder = new MediaRecorder(stream);
+    mediaRecorder.start();
+    isRecording = true;
     
-    
+    const audioChunks = [];
+    mediaRecorder.addEventListener("dataavailable", event => {
+      audioChunks.push(event.data);
+    });
+
+
+    // old start
+    let constraints = { audio: true, video: false }
+
+    navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
         const audioContext = new window.AudioContext();
         audioStream = stream;
         const input = audioContext.createMediaStreamSource(stream);
         rec = new Recorder(input, { numChannels: 1 })
         rec.record()
+        
+    }).catch(function (err) {
+        console.log(err);
+    });
+    // old over
     
     mediaRecorder.addEventListener("stop", () => {
 
+      // old start
       rec.stop();
       audioStream.getAudioTracks()[0].stop();
       rec.exportWAV(uploadSoundData);
 
+      function uploadSoundData(blob) {
+        const nowUtc = new Date(Date.now());
+        const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".wav";
+        const formData = new FormData();
+        formData.append('audio', blob, filename);
 
-    function uploadSoundData(blob) {
-      const nowUtc = new Date(Date.now());
-      const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".wav";
-      const formData = new FormData();
-      formData.append('audio', audioBlob, filename);
-    
         fetch("http://localhost:3000/send_audio", {
-        method: "POST",
-        body: formData
-      }).then(async result=>{
-        console.log("success");
-      }).catch(error=>{
-        console.log(error);
-      })
-    }
+          method: "POST",
+          body: formData
+        }).then(async result=>{
+          console.log("success");
+        }).catch(error=>{
+          console.log(error);
+        })
 
+    }
+      // old over
+      
+      const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
+      
+      // Send audio data to server for processing and get text transcript
+      console.log(audioBlob);
+      // Create new message element with audio transcript
       const messageContainer = document.createElement('div');
       messageContainer.classList.add('message');
       messageContainer.classList.add('user-message');
