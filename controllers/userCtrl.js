@@ -1,4 +1,5 @@
 const User = require("../models/users");
+const Depression_data = require("../models/data");
 
 const home = (req, res) => {
     res.render('index');
@@ -148,7 +149,6 @@ const handleAudio = (req, res)=>{
         }
     }, { useFindAndModify: false, new: true }, (err, result)=>{
         if(!err){
-            req.flash("message", "Appointment booked successfully");
             res.redirect("/individual_therapy");
         }
     })

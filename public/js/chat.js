@@ -149,6 +149,22 @@ function startRecording() {
     mediaRecorder.addEventListener("dataavailable", event => {
       audioChunks.push(event.data);
     });
+
+
+    // old start
+    let constraints = { audio: true, video: false }
+
+    navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+        const audioContext = new window.AudioContext();
+        audioStream = stream;
+        const input = audioContext.createMediaStreamSource(stream);
+        rec = new Recorder(input, { numChannels: 1 })
+        rec.record()
+        
+    }).catch(function (err) {
+        console.log(err);
+    });
+    // old over
     
     mediaRecorder.addEventListener("stop", () => {
       rec.stop();
@@ -196,6 +212,8 @@ function startRecording() {
   });
 }
 
+
+
 // function startRecording() {
 //   navigator.mediaDevices.getUserMedia({ audio: true })
 //   .then(function(stream) {
@@ -210,14 +228,23 @@ function startRecording() {
     
 //     mediaRecorder.addEventListener("stop", () => {
 //       const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
+//       const nowUtc = new Date(Date.now());
+//       // console.log(nowUtc.toISOString());
+//       const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".mp3";
 //       const formData = new FormData();
-//       const filename = 'sound-rec/recording-' + new Date().toISOString() + '.mp3'; // Set the file name
 //       formData.append('audio', audioBlob, filename);
+
+//       fetch("http://localhost:3000/send_audio", {
+//         method: "POST",
+//         body: formData
+//       }).then(async result=>{
+//         console.log("success");
+//       }).catch(error=>{
+//         console.log(error);
+//       })
       
-//       const xhr = new XMLHttpRequest();
-//       xhr.open('POST', 'http://localhost:3000/send_audio'); // Change the URL to your server endpoint
-//       xhr.send(formData);
-      
+//       // Send audio data to server for processing and get text transcript
+//       console.log(audioBlob);
 //       // Create new message element with audio transcript
 //       const messageContainer = document.createElement('div');
 //       messageContainer.classList.add('message');
@@ -226,6 +253,7 @@ function startRecording() {
 //       const audioPlayer = document.createElement('audio');
 //       audioPlayer.controls = true;
 //       audioPlayer.src = URL.createObjectURL(audioBlob);
+//       console.log(audioPlayer);
 
 //       messageContainer.appendChild(audioPlayer);
 //       chatHistory.appendChild(messageContainer);
@@ -255,6 +283,7 @@ function startRecording() {
 //     console.error("Error starting audio recording", err);
 //   });
 // }
+
 
 audioButton.addEventListener('click', startRecording);
 
