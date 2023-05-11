@@ -95,13 +95,20 @@
 
 
         <div id="main">
+<!-- 
+            <% depression_data.forEach(function(d){ %>
+               <p> <%= d.depression_label %>
+                     - <%= d.time_stamp %>
+               </p>
+                <% }); %> -->
+
 
             <div id="Health Tracker" class="tabcontent">
                 <h3>Tracker</h3>
                 <p>
 
 
-                <div class="chart-d">
+                <!-- <div class="chart-d">
 
                     <div class="chart-div">
                         <canvas id="myChart1"></canvas>
@@ -112,7 +119,7 @@
                         <canvas id="myChart2"></canvas>
                         <h5>Data by percent</h5>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="chart-div">
                     <canvas id="myChart3"></canvas>
@@ -125,6 +132,20 @@
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
             <script>
+                let depression_da = <%= depression_data %>
+                // sort data array in increasing order of time_stamp
+                depression_data.sort((a, b) => new Date(a.time_stamp) - new Date(b.time_stamp));
+
+                // create arrays for time_stamps and depression_labels
+                let timeStamps = [];
+                let depressionLabels = [];
+
+                // iterate through data array and add time_stamps and depression_labels to arrays
+                depression_data.forEach((record) => {
+                timeStamps.push(new Date(record.time_stamp));
+                depressionLabels.push(parseInt(record.depression_label));
+                });
+
                 const ctx1 = document.getElementById('myChart1');
                 const ctx2 = document.getElementById('myChart2');
 
@@ -172,11 +193,11 @@
 
                 // Step 1: Prepare data
                 const data = {
-                    labels: ['Data 1', 'Data 2', 'Data 3', 'Data 4', 'Data 5', 'Data 6'],
+                    labels: timeStamps,
                     datasets: [
                         {
                             label: 'Binary Data',
-                            data: [1, 0, 1, 0, 1, 0],
+                            data: depressionLabels,
                             backgroundColor: [
                                 'rgba(75, 192, 192, 0.2)',
                                 'rgba(75, 192, 192, 0.2)',

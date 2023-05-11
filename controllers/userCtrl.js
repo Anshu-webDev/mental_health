@@ -127,7 +127,13 @@ const handleEditProfile = (req, res) => {
 
 const health_tracker = (req, res) => {
     if (req.session.user) {
-        res.render("health_tracker", { user: req.session.user });
+        console.log(typeof(req.session.user._id));
+        Depression_data.find({user_id: req.session.user._id}, (err, result)=>{
+            if(!err){
+                console.log(result);
+                res.render("health_tracker", { user: req.session.user, depression_data: result });
+            }
+        })
     } else {
         res.redirect("/login");
     }

@@ -58,6 +58,7 @@
 		</section>
 
 		<div class="chat-container">
+			<%= user._id %>
 		
 			<div class="chat-history">
 				
@@ -99,6 +100,7 @@
 		var data = {
             user_id: '<%= user._id %>'
         };
+		console.log(data);
         // Send an AJAX request to the API
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'http://127.0.0.1:5000/predict_depression', true);

@@ -21,6 +21,7 @@ model = load_model('model.h5')
 @app.route('/predict_depression', methods = ['POST'])
 def disp():
     user_id = request.json.get('user_id', None)
+    print(user_id)
     if not user_id:
         ret = {
             "msg":"User_id is Required."
@@ -61,21 +62,24 @@ def append_data_in_db(user_id,depression_label,time_stamp):
     db = client['mentalHealth']
     depression_data = db['depression_datas']
     # Iterate through all records in the depression_data
-    for record in depression_data.find():
-        user_id = record["user_id"]
-        depression_label = record["depression_label"]
-        time_stamp = record["time_stamp"]
-
-        # Check if a record with the same user_id and time_stamp already exists
-        existing_record = depression_data.find_one({"user_id": user_id, "time_stamp": time_stamp})
-        if existing_record:
-            # print(existing_record["_id"])
-            # If the record exists, update its depression_label value
-            depression_data.update_one({"_id": existing_record.get("_id",None)}, {"$set": {"depression_label": depression_label}})
-        else:
-            # If the record doesn't exist, insert a new record with the given values
-            new_record = {"user_id": user_id, "depression_label": depression_label, "time_stamp": time_stamp}
-            depression_data.insert_one(new_record)
+    time_stamp = "2023-05-04"
+    depression_label = "1"
+    print(user_id)
+    # Check if a record with the same user_id and time_stamp already exists
+    existing_record = depression_data.find_one({"user_id": user_id, "time_stamp": time_stamp})
+    if existing_record:
+        print("Hello2")
+        # print(existing_record["_id"])
+        # If the record exists, update its depression_label value
+        result = depression_data.update_one({"_id": existing_record.get("_id",None)}, {"$set": {"depression_label": depression_label}})
+        print(result.modified_count)
+        print(result.matched_count)
+    else:
+        # If the record doesn't exist, insert a new record with the given values
+        print("Hello3")
+        new_record = {"user_id": user_id, "depression_label": depression_label, "time_stamp": time_stamp}
+        result = depression_data.insert_one(new_record)
+        print(result.inserted_id)
   
   
 # driver function

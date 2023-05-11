@@ -4,7 +4,7 @@ const conn = require("../config/db")
 
 const depression_dataSchema = new mongoose.Schema({
     user_id: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'User',
         required: true
       },

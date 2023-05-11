@@ -134,4 +134,5 @@ dist
 .pnp.*
 
 mehp_venv/
+venv/
 /public/sound-rec/
