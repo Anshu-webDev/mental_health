@@ -78,3 +78,48 @@ body {
 .audio .fa-stop {
   color: red;
 }
+
+#predict-btn {
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#predict-btn.loading {
+  background-color: gray;
+}
+
+#predict-btn.loading:after {
+  /* content: '';
+  align-items: center;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  margin-left: 10px; */
+  content: "";
+  box-sizing: border-box;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  margin-top: 5%;
+  margin-left: 45%;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  border-top-color: #000;
+  animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -28,15 +28,17 @@ def disp():
         }
     current_directory =os.getcwd()
     file_directory = current_directory+"/public/sound-rec/"
-    predict_list = []
+    predict_list = [0]
     current_date = datetime.utcnow()
     current_date = str(current_date).split(" ")[0]
+    print(current_date)
     for root, dirs, files in os.walk(file_directory):
         for filename in files:
             if filename.startswith(user_id):  
                 filename_copy=filename
                 filename_copy = filename_copy.split("audio")[-1].split("T")[0]
                 if current_date == filename_copy: 
+                    print("Hello")
                     audio_path = os.path.join(root,filename) 
                     if os.path.exists(audio_path):
                         try:
@@ -46,11 +48,11 @@ def disp():
                             mat= np.array(mat.T)
                             X=np.array([mat])
                             ans = np.argmax(model.predict(X), axis=-1)
-                            print(ans)
                             predict_list.append(ans[0])
                         except:
                             predict_list.append(0)
 
+    print(predict_list)
     depression_label = str(statistics.mode(predict_list))
     time_stamp = str(current_date)
     append_data_in_db(user_id,depression_label,time_stamp)
