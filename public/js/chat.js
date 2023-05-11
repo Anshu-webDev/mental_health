@@ -114,13 +114,36 @@ let isRecording = false;
 //     console.error("Error starting audio recording", err);
 //   });
 // }
+let rec = null;
+let audioStream = null;
+function uploadSoundData(blob){
+  const nowUtc = new Date(Date.now());
+  // console.log(nowUtc.toISOString());
+  const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".wav";
+  const formData = new FormData();
+  formData.append('audio', blob, filename);
 
+  fetch("http://localhost:3000/send_audio", {
+    method: "POST",
+    body: formData
+  }).then(async result=>{
+    console.log("success");
+  }).catch(error=>{
+    console.log(error);
+  })
+}
 function startRecording() {
-  navigator.mediaDevices.getUserMedia({ audio: true })
+  let constraints = { audio: true, video: false }
+  navigator.mediaDevices.getUserMedia(constraints)
   .then(function(stream) {
     const mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
     isRecording = true;
+    const audioContext = new window.AudioContext();
+    audioStream = stream;
+    const input = audioContext.createMediaStreamSource(stream);
+    rec = new Recorder(input, { numChannels: 1 })
+    rec.record()
     
     const audioChunks = [];
     mediaRecorder.addEventListener("dataavailable", event => {
@@ -128,24 +151,12 @@ function startRecording() {
     });
     
     mediaRecorder.addEventListener("stop", () => {
+      rec.stop();
       const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
-      const nowUtc = new Date(Date.now());
-      // console.log(nowUtc.toISOString());
-      const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".mp3";
-      const formData = new FormData();
-      formData.append('audio', audioBlob, filename);
-
-      fetch("http://localhost:3000/send_audio", {
-        method: "POST",
-        body: formData
-      }).then(async result=>{
-        console.log("success");
-      }).catch(error=>{
-        console.log(error);
-      })
+      rec.exportWAV(uploadSoundData);
       
       // Send audio data to server for processing and get text transcript
-      console.log(audioBlob);
+      // console.log(audioBlob);
       // Create new message element with audio transcript
       const messageContainer = document.createElement('div');
       messageContainer.classList.add('message');
