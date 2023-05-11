@@ -15,9 +15,6 @@ const login = (req, res) => {
 
 const handleRegister = (req, res) => {
     const { username, email, password } = req.body;
-    // console.log(username);
-    // console.log(email);
-    // console.log(password);
 
     const user = new User({
         username: username,
@@ -76,11 +73,9 @@ const edit_profile = (req, res) => {
 }
 
 const handleEditProfile = (req, res) => {
-    // console.log(req.body);
-    // console.log(req.session.user);
+
     const { username, email, age, gender, address, hobbies, job, dwh, phy_ill } = req.body;
 
-    // console.log(req.session.user._id);
     let data = User.findOneAndUpdate({ _id: req.session.user._id }, {
         username: username,
         email: email,
@@ -127,10 +122,8 @@ const handleEditProfile = (req, res) => {
 
 const health_tracker = (req, res) => {
     if (req.session.user) {
-        console.log(typeof(req.session.user._id));
         Depression_data.find({user_id: req.session.user._id}, (err, result)=>{
             if(!err){
-                console.log(result);
                 res.render("health_tracker", { user: req.session.user, depression_data: result });
             }
         })
