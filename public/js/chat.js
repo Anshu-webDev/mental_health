@@ -129,7 +129,9 @@ function startRecording() {
     
     mediaRecorder.addEventListener("stop", () => {
       const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' }); // Set the mimeType to 'audio/mp3'
-      const filename = "audio" + new Date().getTime() + ".mp3";
+      const nowUtc = new Date(Date.now());
+      // console.log(nowUtc.toISOString());
+      const filename = "audio" + nowUtc.toISOString().replaceAll(":", "-") + ".mp3";
       const formData = new FormData();
       formData.append('audio', audioBlob, filename);
 
