@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
         callback(null, "./public/sound-rec/")
     },
     filename: (req, file, callback)=>{
-        callback(null, file.originalname)
+        callback(null, req.session.user._id + file.originalname)
     }
 
 })
